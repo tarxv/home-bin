@@ -1,0 +1,19 @@
+#!/bin/sh
+# control brightness using ACPI kernel module (Intel card)
+bpath=/sys/class/backlight/intel_backlight/brightness
+step=$2
+if [ ! -w "$bpath" ]; then
+    sudo chmod o+w "$bpath"
+fi
+case $1 in
+    -get|get)
+        cat "$bpath";;
+    -set|set)
+        echo $step > "$bpath";;
+    +|-inc|inc)
+        echo $(($(cat "$bpath")+step)) > "$bpath";;
+    -|-dec|dec)
+        echo $(($(cat "$bpath")-step)) > "$bpath";;
+    *)
+        echo "wrong parameter";;
+esac

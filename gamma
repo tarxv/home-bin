@@ -1,0 +1,17 @@
+#!/bin/bash
+# sleep 1
+# gam=0.7
+# br=1
+# xrandr --output LVDS-1 --gamma $gam:$gam:$gam --brightness $br
+# &> will not always work
+sleep 1
+if [[ -n "$1" ]]; then
+    v=$1
+else
+    v=0.6
+fi
+
+/usr/bin/xgamma -gamma $v >/dev/null 2>&1
+
+#setxkbmap -option ctrl:swapcaps
+#0.7 0.5

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+    if [ -z "$(ps -ef|grep "[abc]omment manjaro")" ]; then
+        VBoxManage startvm "manjaro" --type headless
+        echo ">>>>>>>>>>>>>>>>>>>>>>>>>> Starting Manjaro"
+        sleep 15 
+        ssh -p 2345 liren@127.0.0.1
+    else
+        ssh -p 2345 liren@127.0.0.1
+    fi
+elif [ "$1" = "p" ]; then
+    if [ -n "$(ps -ef|grep -E "ca?omment manjaro")" ]; then
+        echo ">>>>>>>>>>>>>>>>>>>>>>>>>> Stopping Manjaro"
+        VBoxManage controlvm "manjaro" poweroff
+    else
+        echo "Manjaro is down"
+    fi
+fi

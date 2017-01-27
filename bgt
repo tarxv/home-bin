@@ -1,0 +1,3 @@
+#!/bin/sh
+# make the timer nohup
+nohup t $@ > /dev/null 2>&1 & 

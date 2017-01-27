@@ -1,0 +1,14 @@
+#!/bin/bash
+# classpath=.:classes:/home/liren/stash/src/javalib/*
+if [ $# -eq 0 ]; then
+   echo 'GIVE ME A JAVA FILE'
+    exit 1
+fi
+
+# com/exmaple/Main.java -> com.example.Main
+class=${1%.*}
+class=${class//\//.}
+#class=$(echo $1 |  cut -d . -f 1 | sed 's/\//\./g')
+mkdir -p classes
+javac -g -d classes -encoding UTF-8 -Xlint:all -Xlint:-overrides -Xdiags:verbose -Xmaxwarns 10 -Xmaxerrs 10 $1
+java $class $2

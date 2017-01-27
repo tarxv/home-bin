@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+    if [ -z "$(ps -ef|grep "[abc]omment centos7")" ]; then
+        VBoxManage startvm "centos7" --type headless
+        echo ">>>>>>>>>>>>>>>>>>>>>>>>>> Starting CentOS 7"
+        sleep 22 
+        ssh -p 2346 liren@127.0.0.1
+    else
+        ssh -p 2346 liren@127.0.0.1
+    fi
+elif [ "$1" = "p" ]; then
+    if [ -n "$(ps -ef|grep -E "ca?omment centos7")" ]; then
+        echo ">>>>>>>>>>>>>>>>>>>>>>>>>> Stopping CentOS 7"
+        VBoxManage controlvm "centos7" poweroff
+    else
+        echo "CentOS 7 is down"
+    fi
+fi

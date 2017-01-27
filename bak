@@ -1,0 +1,7 @@
+#!/bin/bash
+# make/recover backup
+if [[ ${1:(-4)} = .bak ]]; then
+    mv "$1" "${1:0:(-4)}"
+else
+    cp "$1" "${1}.bak"
+fi
