@@ -1,0 +1,19 @@
+#!/bin/bash
+# Box Breathing
+print_4s() {
+    for i in {1..4}; do
+        printf "  $i\r"
+        sleep 1
+    done
+}
+
+while true; do
+    echo 'Inhale'
+    print_4s
+    echo 'Hold'
+    print_4s
+    echo 'Exhale'
+    print_4s
+    echo 'Hold'
+    print_4s
+done

@@ -31,5 +31,5 @@ while [ "$m" -lt "$T" ]; do
     m=$((m+1))
 done
 
-espeak -a 40 -v f3 "It's time to stlop."
+espeak -a 40 -v f3 "It's time to stop."
 feh -F --zoom fill ~/Pictures/oo.jpg
