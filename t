@@ -1,6 +1,6 @@
 #!/bin/sh
 
-T=30
+T=40
 spm=60
 case $1 in
     "")
@@ -33,3 +33,4 @@ done
 
 espeak -a 40 -v f3 "It's time to stop."
 feh -F --zoom fill ~/Pictures/oo.jpg
+#zenity --warning --text="okokok" 

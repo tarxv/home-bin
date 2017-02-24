@@ -10,5 +10,4 @@ class=${1%.*}
 class=${class//\//.}
 #class=$(echo $1 |  cut -d . -f 1 | sed 's/\//\./g')
 mkdir -p classes
-javac -g -d classes -encoding UTF-8 -Xlint:all -Xlint:-overrides -Xdiags:verbose -Xmaxwarns 10 -Xmaxerrs 10 $1
-java $class $2
+javac -g -d classes -encoding UTF-8 -Xlint:all -Xlint:-overrides -Xdiags:verbose -Xmaxwarns 10 -Xmaxerrs 10 $1 && java $class $2

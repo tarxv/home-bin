@@ -1,1 +1,1 @@
-exec /usr/bin/nautilus --no-desktop --new-window &
+exec /usr/bin/nautilus --new-window &
