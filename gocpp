@@ -1,2 +1,5 @@
-#!/bin/sh
-g++ -Wall -std=c++11 "$@" && ./a.out
+#!/bin/bash
+dir=debug
+bin="${1:0:-4}"
+mkdir -p "$dir"
+g++ -g -Wall -o "$dir"/"$bin" "$1" && ./"$dir"/"$bin"

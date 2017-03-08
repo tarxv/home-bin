@@ -1,5 +1,0 @@
-#!/bin/sh
-t1="ELAN1010:00 04F3:3012 Touchpad"
-t2="ETPS/2 Elantech Touchpad"
-xinput --set-prop "$t1" "Device Enabled" 0
-#xinput --set-prop "$t2" "Device Enabled" 0

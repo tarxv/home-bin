@@ -1,8 +1,10 @@
 #!/bin/bash
-# find /dir/path -maxdepth 0 -type d -empty
-if [[ $(ls -A /media/liren/WD_Ext4) ]]; then
-    tmux new-session -s sync 'rsync -av --stats --progress -h --delete ~/ /media/liren/WD_Ext4/home_backup/ --exclude-from=/home/liren/bin/exclude.list'
-    # exclude-from don't accept relative path. don't use include-from.
+# find /dir/path -maxdepth 0 -type d -empty | $(ls -A dir) # check empty dir
+backupto=/run/media/liren/WD_Ext4/home_backup/
+cmd="rsync -aAXv --stats --progress -h --delete ~/ "$backupto" --exclude-from=/home/liren/bin/exclude.list"
+if [[ -d $backupto ]]; then
+    tmux new-session -s home_backup "$cmd"
+    # exclude-from requires absolute path. Don't use include-from.
     # ".*" & "*./" exclude everything hidden
 else
     echo "Error: WD_Ext4 is not mounted."
