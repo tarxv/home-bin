@@ -2,6 +2,6 @@
 
 if xrandr | grep -q 'HDMI1 connected'; then
     ~/.screenlayout/hp21.sh 
-else
-    ~/.screenlayout/default.sh
+#else
+#    ~/.screenlayout/default.sh
 fi

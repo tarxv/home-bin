@@ -1,6 +1,6 @@
 #!/bin/sh
 
-T=40
+T=30
 spm=60
 case $1 in
     "")
@@ -31,6 +31,6 @@ while [ "$m" -lt "$T" ]; do
     m=$((m+1))
 done
 
-espeak -a 40 -v f3 "It's time to stop."
+espeak -a 40 -v f3 "It's time to stop." >/dev/null 2&>1
 feh -F --zoom fill ~/Pictures/oo.jpg
 #zenity --warning --text="okokok" 
